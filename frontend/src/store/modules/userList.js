@@ -23,6 +23,9 @@ const mutations = {
     } else {
       state.isUser = true
     }
+  },
+  RESET_NO_USER(state) {
+    state.isUser = true
   }
 }
 
@@ -39,6 +42,9 @@ const actions = {
     }).catch((err)=>{
       console.log(err)
     })
+  },
+  resetNoUser({ commit }) {
+    commit('RESET_NO_USER')
   }
 }
 

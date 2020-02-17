@@ -2,7 +2,12 @@
   <div>
     {{searchKeyword}}
     <div class="wrap_inp">
-      <input type="text" class="inp_item" v-model="searchKeyword" />
+      <input 
+        type="text" 
+        class="inp_item" 
+        v-model="searchKeyword"
+        @click="inpSearchClick" 
+      />
       <button type="button" class="btn_item" @click="searchEvent">검색하기</button>
     </div>
     <ul class="list_user" v-if="getIsUser">
@@ -54,16 +59,19 @@ export default {
 
   },
   methods: {
-    ...mapActions('userList', ['getUserListData']),
+    ...mapActions('userList', ['getUserListData', 'resetNoUser']),
     searchEvent() {
       if(this.searchKeyword.length  > 1) {
         this.getUserListData(this.searchKeyword)
         this.searchKeyword = ''
       } else {
         alert('2글자 이상 입력해주세요')
-      }
-           
+      } 
+    },
+    inpSearchClick() {
+      this.resetNoUser();
     }
+
   },
   watch: {
     // searchKeyword(){
