@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import UserList from '../views/user/User.vue'
-import UserDetail from '../views/user/UserDetail.vue'
+import store from '@/store'
+import Home from '../views/Home'
+import UserList from '../views/user/User'
+import UserDetail from '../views/user/UserDetail'
+import NotFound from '../views/NotFound'
 
 Vue.use(VueRouter)
 
@@ -36,7 +38,16 @@ const routes = [
         name: 'UserDetail',
         component: UserDetail
       }
-    ]
+    ],
+    beforeEnter: (to, from, next) => {
+      store.dispatch('userList/resetUserData')
+      next()
+    }
+    
+  },
+  {
+    path:'*', 
+    component: NotFound
   }
 
 ]
@@ -44,7 +55,9 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  // linkExactActiveClass:'exact_active',
+  // linkActiveClass:'active'
 })
 
 export default router

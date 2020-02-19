@@ -26,12 +26,16 @@ const mutations = {
       state.isUser = true
     }
   },
-  RESET_NO_USER(state) {
-    state.isUser = true
-  },
   USER_DETATILE_DATA(statem, payload) {
     console.log(payload);
     state.userDetaile = payload;
+  },
+  RESET_NO_USER(state) {
+    state.isUser = true
+  },
+  RESET_USER_DATA(state) {
+    state.userListData = []
+    state.isUser = true
   }
 }
 
@@ -49,11 +53,14 @@ const actions = {
       console.log(err)
     })
   },
+  getUserDetaile({ commit }, context) {
+    commit('USER_DETATILE_DATA', context)
+  },
   resetNoUser({ commit }) {
     commit('RESET_NO_USER')
   },
-  getUserDetaile({ commit }, context) {
-    commit('USER_DETATILE_DATA', context)
+  resetUserData({ commit }) {
+    commit('RESET_USER_DATA')
   }
 }
 
