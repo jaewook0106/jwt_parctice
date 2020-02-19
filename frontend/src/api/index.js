@@ -5,9 +5,9 @@ const request = (method, url, data) => {
     method,
     url,
     data
-  }).then(response =>{
+  }).then(response => {
     return response;
-  }).catch(ex =>{
+  }).catch(ex => {
     console.log('에러 호출 실패', ex);
     throw ex
   })

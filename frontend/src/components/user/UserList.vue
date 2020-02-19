@@ -12,7 +12,7 @@
     </div>
     <ul class="list_user" v-if="getIsUser">
       <li v-for="(item, idx) in getUserList" :key="'user'+idx">
-        <div class="inner_user">
+        <router-link :to="{name:'UserDetail', params:{ id: item.name }}" class="inner_user" @click.native="userView(item)">
           <div class="wrap_thumb">
             <img :src="item.photo" alt="" class="thumb_img">
           </div>
@@ -30,13 +30,14 @@
               <dd>{{item.address}}</dd>
             </dl>
           </div>
-        </div>
+        </router-link>
         
       </li>
     </ul>
     <div class="no_uesr" v-if="!getIsUser">
       검색이 없습니다.
     </div>
+    <button type="button" @click="promiseBtn">promise테스트</button>
   </div>
 </template>
 
@@ -47,6 +48,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
+  name: 'UserList',
   data(){
     return {
       searchKeyword: ''
@@ -59,7 +61,7 @@ export default {
 
   },
   methods: {
-    ...mapActions('userList', ['getUserListData', 'resetNoUser']),
+    ...mapActions('userList', ['getUserListData', 'resetNoUser', 'getUserDetaile']),
     searchEvent() {
       if(this.searchKeyword.length  > 1) {
         this.getUserListData(this.searchKeyword)
@@ -71,23 +73,39 @@ export default {
     inpSearchClick() {
       this.resetNoUser();
     },
+
+    userView(item) {
+      console.log(item)
+      this.getUserDetaile(item)
+    },
+
     testPromise() {
-      const data = new Promise((resolve, reject)=>{
+      const data = new Promise((resolve, reject) => {
         const test = '데이터';
         // $.get('url', (response)=>{
         //    resolve(response);
         // })
-        resolve(test);
-        reject();
+        if(test) {
+          resolve(test);
+        }
+        reject(new Error('error message'));
       })
       return data;
     },
+    // async testPromise() {
+    //   const data = await $.get('url', (response)=>{})
+    //   return data;
+    // },
     promiseTest() {
-      this.testPromise().then((response)=>{
-        console.log(response)
-      }).catch((err)=>{
+      this.testPromise().then((response) => {
+        console.log(response);
+        // throw new Error('error massege2')
+      }).catch((err) => {
         console.log(err)
       })
+    },
+    promiseBtn() {
+      this.promiseTest()
     }
 
   },
@@ -113,13 +131,17 @@ export default {
   }
   .list_user{
     margin:0 -10px;
+    text-align:left;
     &::after{
       display:block;
       clear:both;
       content:''
     }
     .inner_user{
+      display:block;
       border:1px solid #ddd;
+      color:#666;
+      text-decoration:none;
     }
     li{
       float:left;
@@ -134,7 +156,7 @@ export default {
     }
     .wrap_info{
       height:60px;
-      padding:5px;
+      padding:10px 15px;
     }
     .dl_info{
       
