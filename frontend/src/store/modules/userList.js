@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import userListApi from '@/api/userListApi';
+import userListApi from '@/api/modules/userListApi';
 
 Vue.use(Vuex)
 
@@ -42,6 +42,8 @@ const actions = {
     }).catch((err)=>{
       console.log(err)
     })
+
+    
   },
   resetNoUser({ commit }) {
     commit('RESET_NO_USER')

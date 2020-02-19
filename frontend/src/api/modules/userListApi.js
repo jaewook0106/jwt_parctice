@@ -1,4 +1,4 @@
-import request from './index';
+import request from '../index';
 
 const userListApi = {
   async getUserListApi(name){
@@ -7,6 +7,5 @@ const userListApi = {
     return result;
   }
 }
-
 
 export default userListApi;

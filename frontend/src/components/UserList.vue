@@ -70,6 +70,24 @@ export default {
     },
     inpSearchClick() {
       this.resetNoUser();
+    },
+    testPromise() {
+      const data = new Promise((resolve, reject)=>{
+        const test = '데이터';
+        // $.get('url', (response)=>{
+        //    resolve(response);
+        // })
+        resolve(test);
+        reject();
+      })
+      return data;
+    },
+    promiseTest() {
+      this.testPromise().then((response)=>{
+        console.log(response)
+      }).catch((err)=>{
+        console.log(err)
+      })
     }
 
   },
