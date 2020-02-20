@@ -12,7 +12,7 @@
     </div>
     <ul class="list_user" v-if="getIsUser">
       <li v-for="(item, idx) in getUserList" :key="'user'+idx">
-        <router-link :to="{name:'UserDetail', params:{ id: item.name }}" class="inner_user" @click.native="userView(item)">
+        <router-link :to="{name:'UserDetail', params:{ id: item.name }}" class="inner_user" @click.native="userViewClick(item)">
           <div class="wrap_thumb">
             <img :src="item.photo" alt="" class="thumb_img">
           </div>
@@ -74,7 +74,7 @@ export default {
       this.resetNoUser();
     },
 
-    userView(item) {
+    userViewClick(item) {
       console.log(item)
       this.getUserDetaile(item)
     },
@@ -107,7 +107,6 @@ export default {
     promiseBtn() {
       this.promiseTest()
     }
-
   },
   watch: {
     // searchKeyword(){

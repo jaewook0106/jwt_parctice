@@ -7,11 +7,15 @@ const request = (method, url, data) => {
     data
   }).then(response => {
     return response;
-  }).catch(ex => {
-    console.log('에러 호출 실패', ex);
-    throw ex
+  }).catch(error => {
+    const{ status } = error.response;
+    console.log(status)
+    console.log('에러 호출 실패', error);
+    throw error
   })
 }
 
 
 export default request; 
+
+

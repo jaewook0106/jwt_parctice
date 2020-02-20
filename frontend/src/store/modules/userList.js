@@ -26,7 +26,7 @@ const mutations = {
       state.isUser = true
     }
   },
-  USER_DETATILE_DATA(statem, payload) {
+  USER_DETATILE_DATA(state, payload) {
     console.log(payload);
     state.userDetaile = payload;
   },
