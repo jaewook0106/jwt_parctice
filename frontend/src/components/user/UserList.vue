@@ -14,7 +14,7 @@
       <li v-for="(item, idx) in getUserList" :key="'user'+idx">
         <router-link :to="{name:'UserDetail', params:{ id: item.name }}" class="inner_user" @click.native="userViewClick(item)">
           <div class="wrap_thumb">
-            <img :src="item.photo" alt="" class="thumb_img">
+            <img ref="imgElement" :src="item.photo" :alt="item.name" class="thumb_img" @error="imgErrorEvent(idx)">
           </div>
           <div class="wrap_info">
             <dl class="dl_info">
@@ -43,7 +43,6 @@
 
 <script>
 
-// import { mapState } from 'vuex'
 
 import { mapGetters, mapActions } from 'vuex';
 
@@ -64,7 +63,7 @@ export default {
     ...mapActions('userList', ['getUserListData', 'resetNoUser', 'getUserDetaile']),
     searchEvent() {
       if(this.searchKeyword.length  > 1) {
-        this.getUserListData(this.searchKeyword)
+        this.getUserListData(this.searchKeyword);
         this.searchKeyword = ''
       } else {
         alert('2글자 이상 입력해주세요')
@@ -77,6 +76,12 @@ export default {
     userViewClick(item) {
       console.log(item)
       this.getUserDetaile(item)
+    },
+
+    imgErrorEvent(idx) {
+      console.log(idx)
+      console.log('error')
+      this.$refs.imgElement[1].src = 'https://image.chosun.com/sitedata/image/201906/30/2019063000428_0.jpg'
     },
 
     testPromise() {
@@ -99,7 +104,7 @@ export default {
     promiseTest() {
       this.testPromise().then((response) => {
         console.log(response);
-        // throw new Error('error massege2')
+        // throw new Error('error message2')
       }).catch((err) => {
         console.log(err)
       })
@@ -149,8 +154,11 @@ export default {
       box-sizing:border-box
     }
     .wrap_thumb{
+      width:233px;
+      height:233px;
       .thumb_img{
-        width:100%
+        width:100%;
+        vertical-align:top
       }
     }
     .wrap_info{
