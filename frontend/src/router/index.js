@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import store from '@/store'
+import store from '@/store'
 import Home from '../views/Home'
 import UserList from '../views/user/User'
 import UserDetail from '../views/user/UserDetail'
@@ -39,10 +39,10 @@ const routes = [
         component: UserDetail
       }
     ],
-    // beforeEnter: (to, from, next) => {
-    //   store.dispatch('userList/resetUserData')
-    //   next()
-    // }
+    beforeEnter: (to, from, next) => {
+      store.dispatch('userList/resetUserData')
+      next()
+    }
     
   },
   {
