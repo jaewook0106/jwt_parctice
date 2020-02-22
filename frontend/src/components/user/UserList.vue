@@ -31,23 +31,26 @@
             </dl>
           </div>
         </router-link>
-        
       </li>
     </ul>
     <div class="no_uesr" v-if="!getIsUser">
       검색이 없습니다.
     </div>
     <button type="button" @click="promiseBtn">promise테스트</button>
+    <UserTest></UserTest>
   </div>
 </template>
 
 <script>
 
-
+import UserTest from './UserTest'
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'UserList',
+  components:{
+    UserTest
+  },
   data(){
     return {
       searchKeyword: ''
