@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
-import Home from '../views/Home'
-import UserList from '../views/user/User'
-import UserDetail from '../views/user/UserDetail'
-import NotFound from '../views/NotFound'
+import Home from '@/views/Home'
+import UserList from '@/views/user/User'
+import UserDetail from '@/views/user/UserDetail'
+import Chart from '@/views/chart/Chart'
+
+
+import NotFound from '@/views/NotFound'
+
 
 Vue.use(VueRouter)
 
@@ -61,7 +65,13 @@ const routes = [
   //   component: UserDetail
   // },
   {
-    path:'*', 
+    path: '/chart',
+    name: 'Chart',
+    component: Chart
+  },
+  {
+    path: '*',
+    name: 'NotFound',
     component: NotFound
   }
 
