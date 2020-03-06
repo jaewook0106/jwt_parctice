@@ -45,6 +45,21 @@ const routes = [
     }
     
   },
+  // {
+  //   path: '/user',
+  //   name: 'UserList',
+  //   component: UserList,
+  //   beforeEnter: (to, from, next) => {
+  //     store.dispatch('userList/resetUserData')
+  //     next()
+  //   }
+    
+  // },
+  // {
+  //   path: '/user/view?:id',
+  //   name: 'UserDetail',
+  //   component: UserDetail
+  // },
   {
     path:'*', 
     component: NotFound
