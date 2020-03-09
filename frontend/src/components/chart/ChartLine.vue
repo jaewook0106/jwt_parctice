@@ -2,7 +2,7 @@
 
 import { Line } from 'vue-chartjs'
 export default {
-  name:'ChartView',
+  name:'ChartLine',
   extends: Line,
   data(){
     return {
@@ -16,8 +16,8 @@ export default {
             borderWidth:1,
             pointBorderColor:'#249ebf',
             data:[40, 85, 90, 20, 60],
-            fill: false,
-            lineTension: 0.4,
+            fill: false, // true 일 경우 색상이 채워진다.
+            lineTension: 0.4, // 곡선 라인
           }
         ]
       },
