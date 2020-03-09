@@ -7,15 +7,17 @@ export default {
   data(){
     return {
       chartData: {
-        labels: ['January','February','March'],
+        labels: ['January','February','March', 'April', 'May'],
         datasets: [
           {
-            label: 'DATA ON,E',
+            label: 'DATA ONE',
             backgroundColor:'#f87979',
             pointBackgroundColor:'#fff',
             borderWidth:1,
             pointBorderColor:'#249ebf',
-            data:[40, 70, 90]
+            data:[40, 85, 90, 20, 60],
+            fill: false,
+            lineTension: 0.4,
           }
         ]
       },
@@ -23,15 +25,20 @@ export default {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
+              beginAtZero: true,
+              // maxTicksLimit:11,
+              max: 100,
+              stepSize: 20
+              
             },
             gridLines: {
               display: true
-            }
+            },
+            // stacked: true
           }],
           xAxes: [ {
             gridLines: {
-              display: false
+              display: true
             }
           }]
         },
