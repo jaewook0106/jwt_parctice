@@ -16,6 +16,16 @@
       <ChartDoughnut class="chart_wrap"></ChartDoughnut>
     </div>
     <hr>
+    <div>
+      <strong>극차트</strong>
+      <ChartPolar class="chart_wrap"></ChartPolar>
+    </div>
+    <hr>
+    <div>
+      <strong>라달차트</strong>
+      <ChartRadar class="chart_wrap"></ChartRadar>
+    </div>
+    <hr>
   </div>
 </template>
 
@@ -24,13 +34,17 @@
 import ChartLine from '@/components/chart/ChartLine'
 import ChartBar from '@/components/chart/ChartBar'
 import ChartDoughnut from '@/components/chart/ChartDoughnut'
+import ChartPolar from '@/components/chart/ChartPolar'
+import ChartRadar from '@/components/chart/ChartRadar'
 
 export default {
   name:'Chart',
   components: {
     ChartLine,
     ChartBar,
-    ChartDoughnut
+    ChartDoughnut,
+    ChartPolar,
+    ChartRadar
   }
 }
 </script>

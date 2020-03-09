@@ -1,9 +1,9 @@
 <script>
 
-import { Bar } from 'vue-chartjs'
+import { PolarArea } from 'vue-chartjs'
 export default {
-  name:'ChartBar',
-  extends: Bar,
+  name:'ChartPolar',
+  extends: PolarArea,
   data(){
     return {
       chartData: {
@@ -11,34 +11,18 @@ export default {
         datasets: [
           {
             label: 'DATA ONE',
-            backgroundColor:'#f87979',
-            pointBackgroundColor:'#fff',
+            backgroundColor:['#f87979', 'yellow', 'pink', 'skyblue','#fcc', 'green'],
             borderWidth:1,
-            pointBorderColor:'#249ebf',
+            pointBorderColor:'#fff',
             data:[40, 85, 90, 20, 60, 70],
+
+           
           }
         ]
       },
       chartOption: {
         scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              // maxTicksLimit:11,
-              max: 100,
-              stepSize: 20
-              
-            },
-            gridLines: {
-              display: true
-            },
-            // stacked: true
-          }],
-          xAxes: [ {
-            gridLines: {
-              display: true
-            }
-          }]
+          
         },
         legend: {
           display: true
