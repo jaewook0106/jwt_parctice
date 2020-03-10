@@ -21,9 +21,6 @@ export default {
         ]
       },
       chartOption: {
-        scales: {
-          
-        },
         legend: {
           display: true
         },
