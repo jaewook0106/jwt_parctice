@@ -18,6 +18,16 @@ export default {
             data:[40, 85, 90, 20, 60],
             fill: false, // true 일 경우 색상이 채워진다.
             lineTension: 0.4, // 곡선 라인
+          },
+          {
+            label: 'DATA two',
+            // backgroundColor:['#f87979', 'yellow', 'pink', 'skyblue','#fcc', 'green'],
+            borderWidth:1,
+            pointBorderColor:'#fff',
+            data:[40, 15, 20, 100, 60, 70],
+            pointBackgroundColor: 'rgba(5, 92, 153, 0.6)',
+            fill: false,
+
           }
         ]
       },
