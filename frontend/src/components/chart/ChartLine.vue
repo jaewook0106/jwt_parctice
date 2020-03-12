@@ -14,7 +14,8 @@ export default {
             backgroundColor:'#f87979',
             pointBackgroundColor:'#fff',
             borderWidth:1,
-            pointBorderColor:'#249ebf',
+            borderColor: 'green',
+            pointBorderColor:'green',
             data:[40, 85, 90, 20, 60],
             fill: false, // true 일 경우 색상이 채워진다.
             lineTension: 0.4, // 곡선 라인
@@ -23,9 +24,10 @@ export default {
             label: 'DATA two',
             // backgroundColor:['#f87979', 'yellow', 'pink', 'skyblue','#fcc', 'green'],
             borderWidth:1,
-            pointBorderColor:'#fff',
-            data:[40, 15, 20, 100, 60, 70],
-            pointBackgroundColor: 'rgba(5, 92, 153, 0.6)',
+            borderColor: 'skyblue',
+            pointBorderColor:'skyblue',
+            data:[20, 15, 20, 100, 70],
+            pointBackgroundColor: '#fff',
             fill: false,
 
           }
