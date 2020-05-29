@@ -130,6 +130,11 @@ export default {
     padding:10px;
     box-sizing:border-box
   }
+  .test_app{
+    .btn_item{
+      color:red
+    }
+  }
   .btn_item{
     width:70px;
     height:30px;
