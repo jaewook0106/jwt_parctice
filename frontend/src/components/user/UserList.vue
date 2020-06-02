@@ -11,7 +11,7 @@
       <button type="button" class="btn_item" @click="searchEvent">검색하기</button>
     </div>
     <ul class="list_user" v-if="getIsUser">
-      <li v-for="(item, idx) in getUserList" :key="'user'+idx">
+      <li v-for="(item, idx) in getUserList" :key="'user'+idx" >
         <router-link :to="{name:'UserDetail', params:{ id: item.name }}" class="inner_user" @click.native="userViewClick(item)">
           <div class="wrap_thumb">
             <img ref="imgElement" :src="item.photo" :alt="item.name" class="thumb_img" @error="imgErrorEvent(idx)">
@@ -60,7 +60,9 @@ export default {
     ...mapGetters('userList', ['getUserList', 'getIsUser'])
   },
   mounted() {
-
+    this.$nextTick(() => {
+      console.log('bbb', this.$refs.imgElement)
+    })
   },
   methods: {
     ...mapActions('userList', ['getUserListData', 'resetNoUser', 'getUserDetaile']),
@@ -84,7 +86,7 @@ export default {
     imgErrorEvent(idx) {
       console.log(idx)
       console.log('error')
-      this.$refs.imgElement[1].src = 'https://image.chosun.com/sitedata/image/201906/30/2019063000428_0.jpg'
+      this.$refs.imgElement[idx].src = 'https://image.chosun.com/sitedata/image/201906/30/2019063000428_0.jpg'
     },
 
     testPromise() {
