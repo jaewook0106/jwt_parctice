@@ -1,7 +1,7 @@
 <template>
   <div>
     {{searchKeyword}}
-    <div class="wrap_inp">
+    <div class="wrap_inp" ref="aaa">
       <input 
         type="text" 
         class="inp_item" 
@@ -60,6 +60,7 @@ export default {
     ...mapGetters('userList', ['getUserList', 'getIsUser'])
   },
   mounted() {
+    console.log('aaa', this.$refs.aaa)
     this.$nextTick(() => {
       console.log('bbb', this.$refs.imgElement)
     })
