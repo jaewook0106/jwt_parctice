@@ -5,7 +5,7 @@
       <strong>라인차트</strong>
       <div class="chart_cont">
         <div class="box_chart">
-          <span class="line" style="bottom:70%;">
+          <span class="line" style="bottom:77%;">
             <span class="txt_value">평균값</span>
           </span>
         </div>
