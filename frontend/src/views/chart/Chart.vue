@@ -5,9 +5,11 @@
       <strong>라인차트</strong>
       <div class="chart_cont">
         <div class="box_chart">
-          <span class="line" style="bottom:77%;">
-            <span class="txt_value">평균값</span>
-          </span>
+          <div class="line" style="bottom:77%;">
+            <div class="inner_value">
+              <span class="txt_value">평균값 70%</span>
+            </div>
+          </div>
         </div>
         
       <ChartLine class="chart_wrap chart_line">
@@ -77,11 +79,20 @@ export default {
       width:100%;
       height:2px;
       background-color:green;
+      
+    }
+    .inner_value{
+      position:absolute;
+      top:0;
+      right:0;
       .txt_value{
+        display:block;
         position:absolute;
-        right:-40px;
-        top:-8px;
+        left:10px;
+        top:-6px;
+        width:100px;
         font-size:13px;
+        text-align:left;
       }
     }
   }

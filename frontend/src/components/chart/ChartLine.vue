@@ -29,7 +29,7 @@ export default {
             borderWidth:1,
             borderColor: 'skyblue',
             pointBorderColor:'skyblue',
-            data:[20, 15, 20, 100, 70],
+            data:[20, 15, 20, 90, 70],
             pointBackgroundColor: '#fff',
             fill: true,
 
