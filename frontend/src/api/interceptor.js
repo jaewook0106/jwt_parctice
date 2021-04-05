@@ -22,7 +22,7 @@ function addApiCall(url) {
       // Optional parameters
       container: null,
       canCancel: false,
-      loader: 'dots', // spinner or dots or bars
+      loader: 'spinner', // spinner or dots or bars
       backgroundColor: 'none',
     });
   } else {
